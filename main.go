@@ -48,7 +48,8 @@ import (
 
 */
 
-const SessionsJSONURL = "https://raw.githubusercontent.com/fossasia/open-event-scraper/master/out/sessions.json"
+//const SessionsJSONURL = "https://raw.githubusercontent.com/fossasia/open-event-scraper/master/out/sessions.json"
+const SessionsJSONURL = "https://raw.githubusercontent.com/OpenTechSummit/open-event-scraper/master/out/sessions.json"
 const ServiceKeyFilename = "service_key.json"
 const CalendarDataFilename = "data.json"
 const GoogleCalendarURLBase = "https://calendar.google.com/calendar/render"
@@ -427,10 +428,10 @@ func main() {
 		if location == "" {
 			location = DefaultLocation
 		}
-		location, ok := ScrubbedLocation[location]
-		if !ok {
-			location = session.Location
-		}
+		// location, ok := ScrubbedLocation[location]
+		// if !ok {
+		// 	location = session.Location
+		// }
 
 		// collect locations
 		hasLocation := false
@@ -453,8 +454,8 @@ func main() {
 	}
 
 	// track calendar ids
-	trackCalendarIDsMap := map[int]string{}
-	locationCalendarIDsMap := map[string]string{}
+	// trackCalendarIDsMap := map[int]string{}
+	// locationCalendarIDsMap := map[string]string{}
 
 	// create a master "ALL" calendar. why? because.
 	masterCalendarID := appData.MasterCalendarID
@@ -477,26 +478,26 @@ func main() {
 	for trackID, events := range eventTracksMap {
 
 		// create calendar for track
-		track, _ := tracksMap[trackID]
-		trackIDStr := fmt.Sprintf("%v", trackID)
-		calendarID, ok := appData.TrackCalendarIDs[trackIDStr]
-		if calendarID == "" || !ok {
+		// track, _ := tracksMap[trackID]
+		// trackIDStr := fmt.Sprintf("%v", trackID)
+		// calendarID, ok := appData.TrackCalendarIDs[trackIDStr]
+		// if calendarID == "" || !ok {
 
-			calendarID, err = createCalendar(
-				srv,
-				fmt.Sprintf("FA16 - %v", track.Name),
-				fmt.Sprintf("FOSSASIA 2016 Schedule - %v\nSource available at https://github.com/sogko/fossasia-2016-google-calendar", track.Name),
-			)
+		// 	calendarID, err = createCalendar(
+		// 		srv,
+		// 		fmt.Sprintf("FA16 - %v", track.Name),
+		// 		fmt.Sprintf("FOSSASIA 2016 Schedule - %v\nSource available at https://github.com/sogko/fossasia-2016-google-calendar", track.Name),
+		// 	)
 
-			appData.TrackCalendarIDs[trackIDStr] = calendarID
+		// 	appData.TrackCalendarIDs[trackIDStr] = calendarID
 
-		}
+		// }
 
 		// removed newly-deleted events from track calendar
-		removeEntriesForDeletedSessionsFromCalendar(srv, appData.TrackCalendarSessionIDs, calendarID, sessionsIDs)
+		// removeEntriesForDeletedSessionsFromCalendar(srv, appData.TrackCalendarSessionIDs, calendarID, sessionsIDs)
 
 		// store created calendar ids
-		trackCalendarIDsMap[trackID] = calendarID
+		// trackCalendarIDsMap[trackID] = calendarID
 
 		// add events into google calendar
 		log.Printf("Inserting %v session entries for track %v\n", len(events), trackID)
@@ -506,47 +507,48 @@ func main() {
 			sessionID := findSessionIDForEvent(sessionsEventsMap, event)
 
 			// add or update event on track calendar
-			insertOrUpdateEventForSession(srv, appData, "track", calendarID, sessionID, event)
+			// insertOrUpdateEventForSession(srv, appData, "track", calendarID, sessionID, event)
 
 			// add or update event on master calendar
-			insertOrUpdateEventForSession(srv, appData, "master", calendarID, sessionID, event)
+			//log.Printf("Master Calendar %v ss %v\n", masterCalendarID)
+			insertOrUpdateEventForSession(srv, appData, "master", masterCalendarID, sessionID, event)
 
 		}
 	}
 
 	// for each location, create a calendar and add its events
-	for location, events := range eventsLocationsMap {
+	// for location, events := range eventsLocationsMap {
 
-		// create calendar for location
-		calendarID, ok := appData.LocationCalendarIDs[location]
-		if calendarID == "" || !ok {
-			calendarID, err = createCalendar(
-				srv,
-				fmt.Sprintf("FA16 @ %v", location),
-				fmt.Sprintf("FOSSASIA 2016 Schedule at %v\nSource available at https://github.com/sogko/fossasia-2016-google-calendar", location),
-			)
+	// 	// create calendar for location
+	// 	calendarID, ok := appData.LocationCalendarIDs[location]
+	// 	if calendarID == "" || !ok {
+	// 		calendarID, err = createCalendar(
+	// 			srv,
+	// 			fmt.Sprintf("FA16 @ %v", location),
+	// 			fmt.Sprintf("FOSSASIA 2016 Schedule at %v\nSource available at https://github.com/sogko/fossasia-2016-google-calendar", location),
+	// 		)
 
-			appData.LocationCalendarIDs[location] = calendarID
+	// 		appData.LocationCalendarIDs[location] = calendarID
 
-		}
+	// 	}
 
-		// removed newly-deleted events from location calendar
-		removeEntriesForDeletedSessionsFromCalendar(srv, appData.LocationCalendarSessionIDs, calendarID, sessionsIDs)
+	// 	// removed newly-deleted events from location calendar
+	// 	removeEntriesForDeletedSessionsFromCalendar(srv, appData.LocationCalendarSessionIDs, calendarID, sessionsIDs)
 
-		// store created calendar ids
-		locationCalendarIDsMap[location] = calendarID
+	// 	// store created calendar ids
+	// 	locationCalendarIDsMap[location] = calendarID
 
-		// add events into google calendar
-		log.Printf("Inserting %v session entries for location %v\n", len(events), location)
-		for _, event := range events {
+	// 	// add events into google calendar
+	// 	log.Printf("Inserting %v session entries for location %v\n", len(events), location)
+	// 	for _, event := range events {
 
-			// find session id for given event
-			sessionID := findSessionIDForEvent(sessionsEventsMap, event)
+	// 		// find session id for given event
+	// 		sessionID := findSessionIDForEvent(sessionsEventsMap, event)
 
-			// add or update event on location calendar
-			insertOrUpdateEventForSession(srv, appData, "location", calendarID, sessionID, event)
-		}
-	}
+	// 		// add or update event on location calendar
+	// 		insertOrUpdateEventForSession(srv, appData, "location", calendarID, sessionID, event)
+	// 	}
+	// }
 
 	// print URL to add calendars
 	fmt.Println("\n\nView MASTER calendar at: ", appData.GetMasterCalendarURL())
