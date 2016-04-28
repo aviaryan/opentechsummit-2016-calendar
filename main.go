@@ -55,30 +55,30 @@ const CalendarDataFilename = "data.json"
 const GoogleCalendarURLBase = "https://calendar.google.com/calendar/render"
 const DefaultLocation = "Misc"
 
-var ScrubbedLocation = map[string]string{
-	"Exhibition and Snack Area":                          "Exhibition and Snack Area",
-	"Level 3, Dalton Hall":                               "Level 3, Dalton Hall",
-	"Level 3, Level 3, Dalton Hall":                      "Level 3, Dalton Hall",
-	"Level 1, Observatory Room":                          "Level 1, Observatory Room",
-	"Level 3, Faraday Lab":                               "Level 3, Faraday Lab",
-	"Level 3, Planck Lab":                                "Level 3, Planck Lab",
-	"Level 2, Room to be decided":                        "Level 2, Room to be decided",
-	"Level 3, Fermi Lab":                                 "Level 3, Fermi Lab",
-	"Level 2, Herschel Lab":                              "Level 2, Herschel Lab",
-	"Clarke Quay":                                        "Level 1, Ground Floor, Exhibition Hall",
-	"Level 1, Digital Design Studio":                     "Level 1, Digital Design Studio",
-	"Level 2, Einstein Room":                             "Level 2, Einstein Room",
-	"Level 2, Einstein Hall":                             "Level 2, Einstein Room",
-	"Level 1, Tinkering Studio":                          "Level 1, Tinkering Studio",
-	"Level 1, Ground Floor, Exhibition Hall":             "Level 1, Ground Floor, Exhibition Hall",
-	"Level 1, Ground Floor, Exhibition Hall A":           "Level 1, Ground Floor, Exhibition Hall",
-	"Marquee Theatre":                                    "Marquee Theatre",
-	"Dalton Hall":                                        "Level 3, Dalton Hall",
-	"Level 3, Lewis Lab":                                 "Level 3, Lewis Lab",
-	"Level 3, Pauling Lab":                               "Level 3, Pauling Lab",
-	"Level 1, Eco Garden Lab":                            "Level 1, Eco Garden Lab",
-	"Level 1, Ground Floor, Scientist For a day, Hall A": "Level 1, Ground Floor, Scientist For a day, Hall A",
-}
+// var ScrubbedLocation = map[string]string{
+// 	"Exhibition and Snack Area":                          "Exhibition and Snack Area",
+// 	"Level 3, Dalton Hall":                               "Level 3, Dalton Hall",
+// 	"Level 3, Level 3, Dalton Hall":                      "Level 3, Dalton Hall",
+// 	"Level 1, Observatory Room":                          "Level 1, Observatory Room",
+// 	"Level 3, Faraday Lab":                               "Level 3, Faraday Lab",
+// 	"Level 3, Planck Lab":                                "Level 3, Planck Lab",
+// 	"Level 2, Room to be decided":                        "Level 2, Room to be decided",
+// 	"Level 3, Fermi Lab":                                 "Level 3, Fermi Lab",
+// 	"Level 2, Herschel Lab":                              "Level 2, Herschel Lab",
+// 	"Clarke Quay":                                        "Level 1, Ground Floor, Exhibition Hall",
+// 	"Level 1, Digital Design Studio":                     "Level 1, Digital Design Studio",
+// 	"Level 2, Einstein Room":                             "Level 2, Einstein Room",
+// 	"Level 2, Einstein Hall":                             "Level 2, Einstein Room",
+// 	"Level 1, Tinkering Studio":                          "Level 1, Tinkering Studio",
+// 	"Level 1, Ground Floor, Exhibition Hall":             "Level 1, Ground Floor, Exhibition Hall",
+// 	"Level 1, Ground Floor, Exhibition Hall A":           "Level 1, Ground Floor, Exhibition Hall",
+// 	"Marquee Theatre":                                    "Marquee Theatre",
+// 	"Dalton Hall":                                        "Level 3, Dalton Hall",
+// 	"Level 3, Lewis Lab":                                 "Level 3, Lewis Lab",
+// 	"Level 3, Pauling Lab":                               "Level 3, Pauling Lab",
+// 	"Level 1, Eco Garden Lab":                            "Level 1, Eco Garden Lab",
+// 	"Level 1, Ground Floor, Scientist For a day, Hall A": "Level 1, Ground Floor, Scientist For a day, Hall A",
+// }
 
 type Speaker struct {
 	ID           int    `json:"id"`
@@ -159,8 +159,8 @@ func createCalendar(srv *calendar.Service, summary, description string) (string,
 	newCal, err := srv.Calendars.Insert(&calendar.Calendar{
 		Description: description,
 		Summary:     summary,
-		TimeZone:    "Asia/Singapore",
-		Location:    "Singapore",
+		TimeZone:    "Europe/Berlin",
+		Location:    "Berlin",
 	}).Do()
 	if err != nil {
 		return "", fmt.Errorf("Failed to create master calendar %v", err)
@@ -374,14 +374,14 @@ func main() {
 		event := &calendar.Event{
 			Summary:     title,
 			Description: description,
-			Location:    fmt.Sprintf("%v, Science Centre Singapore", session.Location),
+			Location:    fmt.Sprintf("%v, Kalkscheune Berlin", session.Location),
 			Start: &calendar.EventDateTime{
 				DateTime: session.StartTime,
-				TimeZone: "Asia/Singapore",
+				TimeZone: "Europe/Berlin",
 			},
 			End: &calendar.EventDateTime{
 				DateTime: session.EndTime,
-				TimeZone: "Asia/Singapore",
+				TimeZone: "Europe/Berlin",
 			},
 		}
 
