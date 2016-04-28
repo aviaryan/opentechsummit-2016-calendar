@@ -2,7 +2,7 @@ language: go
 go:
   - 1.6
 before_install:
-  - echo $SERVICE_KEY > service_key.json
+  - echo hi # $SERVICE_KEY > service_key.json
 install:
   - go get golang.org/x/net/context
   - go get golang.org/x/oauth2/google
