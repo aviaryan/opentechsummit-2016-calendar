@@ -463,8 +463,8 @@ func main() {
 
 		masterCalendarID, err = createCalendar(
 			srv,
-			"FOSSASIA 2016 - ALL",
-			"FOSSASIA 2016 Schedule\nSource available at https://github.com/sogko/fossasia-2016-google-calendar",
+			"OpenTechSummit 2016",
+			"OpenTechSummit 2016 Schedule\nSource available at https://github.com/aviaryan/fossasia-2016-google-calendar",
 		)
 
 		appData.MasterCalendarID = masterCalendarID
