@@ -1,12 +1,3 @@
 {
-  "type": "service_account",
-  "project_id": "opentech-calendar",
-  "private_key_id": "2648e6588269f33be7bb52331e903b46e2798110",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQDOvF3nOCMIX1wU\nCJf1MuagkibspmVaoPe6/VYxgyS9eNZH006gTbONP4FSKFX7pFyyl7y5edydpu87\nfmEiFrZQVPrUfxJcqnoZ9nYRxTZx72hwT+xWHdzI+tWedW9ASN1ssfJaA/9GE0qR\nxd0SRwgdwNefQD1BY9MBbvHwOfptb5rkApURF5bF7RpOoozs9s2vA/vfE8X0vLOL\nmvBFzVibZrJfuxDlMDpo5X/dh5uUzTUUnmpRGkucpFk0kqO3SZvUQ8BGHwTYRVK8\nTc+/0sW775Rr5JOUUkKyWuG0wcgjDORmeHFPLYVydpsZsXGGWH/EqoE0Vv90xsrE\nRW1f4iJTAgMBAAECggEBAIuCrlPUnD+QKpESY4mCegQt3LqiZ49LRSIYx8vN1kNO\ngjwiKtMe3GYbTufkdHHGrw+OOjtoMyrodlTNqjrY3NtFHae8wOVr3c4bdf3z+hPV\nHcN9C93pdQ7jxriSQys8gMBTLVr1i5T8e7v3rIIjESUS9+9t6GhyNvimp/oXBhpG\nmadz21zDeLwlfhiU/kAk2D6GCKPvxDn4F5ZBEDZPUZ2qcDD1egFLOdboE1lY+dVK\n3MG/o5Pr/IheSSg/BUSwbIGXWa4QRX00/c6pAaVH4obllzmiqsLREXIjItS7/Zh8\ngn5KI1pknvJE2G3OikMgVUWKVDb/ObwHSH7D03kd5+ECgYEA7tJzZDmS7FRsn5fA\n4dTlNH51akEnVydfFF3+aEfMqXTyBRb2wxtux27F5kKmMmxZzHlS9KqanmeqbB/Y\n+SXLwQtA3lVSRvAsxNjODzrusYSfcdq4KMhwiHa2FYVKThEXLFVvg/NduUSHiYrp\nDdQaW4CRbjPuwS/IBLyraZ3ZxZkCgYEA3ZsYguI+xHKB+6JiVEWy0+BrhNAhVpun\nFG1QvAuqh4FViS3sAc3wesGGQzLHdclvZxkcN9gG+SNFPJCbz/CzqzFGDlRxQ4TG\nYCOGskchgdJWr9U5IFY3EiQXzAM0FfZBdgQEztDR0Nb7IK9axHJD7YUDDm6/+ACG\nBgDcrE/pQssCgYEAttAEIqlrzVqG19e7f2OPnJJc4NxE+BMcViPpVfv4L5Nkm/7L\nH+kE8Mbb2HoWbKzCRKJunPlnaHBkZWYvmfCTuw8ZNdhMJh89teVcPw5Wny6tOuM5\na4ableqBUZH5oi609Wvk9DW7/dD2i5P4+GvvTTHqoVhBoEIqM24VLMD3bakCgYEA\nnjRyXEYur0pcV4vHDQixMSe/OpLnqg/3SNL91zGw7Yo8yXFaUrN2Ifz04BZpZUKI\nYJ8BkTCNUeGHNUS7p8jcS7QiompQbfZlNQ9HwxCa8DZ8oozjep1yNWZFAuWqkp86\nfolB8XAMyj4gDGaDs0ksC25xDyWrsN6Wz8RfxjhKe98CgYEApTJPItatzbVbfU/X\nnbewAodHw+wSqjvUMumkohj9y7OcQLU602+sLJrK2WB3FjsQIZNjZuMgeN1ESLLH\ny3IGRdi3fecDylCiLxIFRn5Es6nl/cCsOzTsVRFVeL7ZxJj8FXX7icFyBCN3B+/A\nfx06mc/xMpJmNhuamddVAuJQ9Rc=\n-----END PRIVATE KEY-----\n",
-  "client_email": "opentech-calendar@appspot.gserviceaccount.com",
-  "client_id": "101112203106258548079",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://accounts.google.com/o/oauth2/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/opentech-calendar%40appspot.gserviceaccount.com"
+  "notes": "Visit https://console.developers.google.com and create a Service Account key for Calendar product."
 }
