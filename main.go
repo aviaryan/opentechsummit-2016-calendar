@@ -134,7 +134,7 @@ type AppData struct {
 }
 
 func (d *AppData) GetMasterCalendarURL() string {
-	url := []string{GoogleCalendarURLBase, "?", d.MasterCalendarID}
+	url := []string{GoogleCalendarURLBase, "?cid=", d.MasterCalendarID}
 	d.MasterCalendarURL = strings.Join(url, "")
 	return d.MasterCalendarURL
 }
