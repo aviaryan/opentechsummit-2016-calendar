@@ -510,7 +510,6 @@ func main() {
 			// insertOrUpdateEventForSession(srv, appData, "track", calendarID, sessionID, event)
 
 			// add or update event on master calendar
-			//log.Printf("Master Calendar %v ss %v\n", masterCalendarID)
 			insertOrUpdateEventForSession(srv, appData, "master", masterCalendarID, sessionID, event)
 
 		}
