@@ -1,5 +1,6 @@
-# fossasia-2016-google-calendar
-A quick and dirty little thing that takes FOSSASIA 2016 schedule and creates Google Calendars (and iCalendars .ics) out of it.
+# open-tech-summit-2016-google-calendar
+A quick and dirty little thing that takes OTS 2016 schedule and creates Google Calendars (and iCalendars .ics) out of it. **Forked** from 
+[sogko/fossasia-2016-google-calendar](https://github.com/sogko/fossasia-2016-google-calendar)
 
 ![Screenshot](http://i.imgur.com/Zrwzyvn.png)
 ![Screenshot](http://i.imgur.com/Q8haf3N.png)
