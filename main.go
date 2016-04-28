@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"time"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -511,7 +512,7 @@ func main() {
 
 			// add or update event on master calendar
 			insertOrUpdateEventForSession(srv, appData, "master", masterCalendarID, sessionID, event)
-
+			time.Sleep(100 * time.Millisecond)
 		}
 	}
 
